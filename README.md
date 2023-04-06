@@ -32,6 +32,7 @@ source venv/Scripts/activate
 ```
 pip install -r requirements.txt
 ``` 
+- Создайте и заполните файл .env (Пример в файле .env.example)
 - Запустите бота:
 ```
 python bot.py
