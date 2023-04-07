@@ -1,3 +1,4 @@
+import json
 from datetime import datetime
 
 
@@ -7,12 +8,12 @@ def data_validator(data: dict) -> dict:
     """
 
     try:
-        data = eval(data)
+        data = json.loads(data)
         if not isinstance(data, dict):
             return {'error': 'Ожидаю словарь'}
-    except (NameError, SyntaxError):
+    except json.decoder.JSONDecodeError:
         return {'error': 'Ожидаю словарь'}
-
+    print(data)
     if None in (data.get('dt_from'), data.get('dt_upto'),
                 data.get('group_type')):
         return {'error': 'Неверное название полей'}
