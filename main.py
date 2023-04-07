@@ -79,9 +79,12 @@ def get_correct_date(start: str, end: str, group_type: str) -> tuple:
     elif group_type == 'day':
         start = datetime.strptime(start, '%Y-%m-%dT%H:%M:%S').replace(hour=0)
     elif group_type == 'month':
-        start = datetime.strptime(start, '%Y-%m-%dT%H:%M:%S').replace(day=1)
+        start = datetime.strptime(start, '%Y-%m-%dT%H:%M:%S').replace(day=1,
+                                                                      hour=0)
     elif group_type == 'year':
-        start = datetime.strptime(start, '%Y-%m-%dT%H:%M:%S').replace(month=1)
+        start = datetime.strptime(start, '%Y-%m-%dT%H:%M:%S').replace(month=1,
+                                                                      day=1,
+                                                                      hour=0)
     end = datetime.strptime(end, '%Y-%m-%dT%H:%M:%S')
     return (start, end)
 
