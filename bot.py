@@ -38,6 +38,7 @@ async def get_salary(message: types.Message):
         await message.reply(error)
     else:
         text = await get_salary_aggregation(data.get('data'))
+        text = str(text).replace("'", '"')
         try:
             await message.answer(text)
         except exceptions.MessageIsTooLong:
