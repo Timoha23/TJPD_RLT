@@ -13,7 +13,7 @@ def data_validator(data: dict) -> dict:
             return {'error': 'Ожидаю словарь'}
     except json.decoder.JSONDecodeError:
         return {'error': 'Ожидаю словарь'}
-    print(data)
+
     if None in (data.get('dt_from'), data.get('dt_upto'),
                 data.get('group_type')):
         return {'error': 'Неверное название полей'}
